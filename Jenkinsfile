@@ -9,14 +9,15 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh 'make tests'
+                sh 'go test ./... -v -json > result.json'
             }
         }
     }
 
     post {
         always {
-            junit 'test-report.xml' // Asegúrate de que el reporte se genere en este archivo
+            // En Go los resultados no están en XML por defecto
+            // Podés usar herramientas como go-junit-report si querés integración con JUnit
         }
     }
 }
