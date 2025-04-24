@@ -14,10 +14,5 @@ pipeline {
         }
     }
 
-    post {
-        always {
-            // En Go los resultados no están en XML por defecto
-            // Podés usar herramientas como go-junit-report si querés integración con JUnit
-        }
-    }
+
 }
